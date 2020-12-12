@@ -1,10 +1,10 @@
 var monkey, monkey_running
 var banana, bananaImage, obstacle, obstacleImage
-var FoodGroup, obstacleGroup
+var FoodGroup, obstacleGroup;
 var score = 0;
-var ground;
+var ground,groundImage;
 var survivalTime = 0;
-var banana;
+var bananaImage,obstacleImage;
 
 function preload() {
 
@@ -14,7 +14,7 @@ function preload() {
   bananaImage = loadImage("banana.png");
   obstaceImage = loadImage("obstacle.png");
   obstacleImage = loadImage("obstacle.png");
-
+  
 
 
 }
@@ -24,9 +24,10 @@ function preload() {
 function setup() {
 
   createCanvas(400, 400);
-
+  
   ground = createSprite(200, 370, 400, 20);
   ground.x = ground.width / 2;
+  
 
   monkey = createSprite(50, 340, 50, 50);
   monkey.addAnimation("running", monkey_running);
@@ -54,11 +55,11 @@ function draw() {
 
 
   if (frameCount % 80 === 0){
-    banana = createSprite(50,Math.round(random(120,200)));
+    banana = createSprite(0,Math.round(random(120,200)));
     banana.addImage(bananaImage);
     banana.scale = 0.1;
-    banana.velocityX = -1;
-    banana.lifetime = 40;
+    banana.velocityX = 1;
+    banana.lifetime = 60;
   }
   
   obstacles();
